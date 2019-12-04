@@ -1,0 +1,137 @@
+#=============================================================================
+# basic.toml --- basic configuration example for SpaceVim
+# Copyright (c) 2016-2017 Wang Shidong & Contributors
+# Author: Wang Shidong < wsdjeg at 163.com >
+# URL: https://spacevim.org
+# License: GPLv3
+#=============================================================================
+# 下面这个文件改过
+# 新安装SpaceVim 请使用pip 安装 flake8, jedi, isort, yapf, pynvim
+# pip install flake8 jedi isort yapf pynvim
+# jedi测试下会有很严重的bug ,不能补全,暂时未排除问题原因
+# 添加所有的python环境目录, 包括exe目录和Scripts目录
+
+# 所有的 SpaceVim 选项都列在 [options] 之下
+[options]
+    # 自定义vimrc,这里面配置了原版vim的一些设置和YCM使用的python路径
+    bootstrap_before = "myspacevim#init"
+
+    # 原版的SpaceVim使用YCM只需要下面的设置,但是我这用不了
+    # 我就在下面手动安装,编译,配置了,目前可以使用
+    # enable_ycm = 1
+
+    # 实时错误检查
+    # lint_on_the_fly = 1
+
+    # 设置 SpaceVim 主题及背景，默认的主题是 gruvbox，如果你需要使用更
+    # 多的主题，你可以载入 colorscheme 模块
+    # 名称    深色主题    浅色主题    终端支持    Gui支持   状态栏支持
+    # molokai       yes no  yes yes yes
+    # onedark       yes no  yes yes yes
+    # jellybeans    yes no  yes yes yes
+    # one           yes yes yes yes yes
+    # nord          yes no  yes yes yes
+    # gruvbox       yes yes yes yes yes
+    # NeoSolarized  yes yes yes yes yes
+    # hybrid        yes yes yes yes yes
+    # material      yes yes yes yes yes
+    # SpaceVim      yes yes yes yes yes
+
+    # colorscheme = "Muon"
+    colorscheme = "jellybeans"
+    # colorscheme = "palenight"
+
+    # 主题背景可以取值 "dark" 或 "light"
+    # background = "dark"
+    background = "light"
+
+    # 字体设置
+    # guifont = "SauceCodePro Nerd Font Mono:h12"
+    # guifont = "FuraCode Nerd Font Mono:h12"
+    guifont = "Source Code Pro:h12"
+
+    # 启用/禁用终端真色，在目前大多数终端下都是支持真色的，当然也有
+    # 一小部分终端不支持真色，如果你的 SpaceVim 颜色看上去比较怪异
+    # 可以禁用终端真色，将下面的值设为 false
+    enable_guicolors = true
+
+    # 设置状态栏上分割符号形状，如果字体安装失败，可以将值设为 "nil" 以
+    # 禁用分割符号，默认为箭头 "arrow",其他知道的: "nil" "bar"
+    statusline_separator = "arrow"
+    statusline_inactive_separator = "arrow"
+
+    # 设置顶部标签列表序号类型，有以下五种类型，分别是 0 - 4
+    # 0: 1 ➛ ➊
+    # 1: 1 ➛ ➀
+    # 2: 1 ➛ ⓵
+    # 3: 1 ➛ ¹
+    # 4: 1 ➛ 1
+    buffer_index_type = 4
+
+    windows_index_type = 3
+
+    # 显示/隐藏顶部标签栏上的文件类型图标，这一图标需要安装 nerd fonts，
+    # 如果未能成功安装这一字体，可以隐藏图标
+    enable_tabline_filetype_icon = true
+
+    # 是否在状态栏上显示当前模式，默认情况下，不显示 Normal/Insert 等
+    # 字样，只以颜色区分当前模式
+    enable_statusline_display_mode = true
+
+    # 字样，只以颜色区分当前模式
+    enable_statusline_mode = false
+
+    # statusline_unicode_symbols = false 来启用 ASCII 字符。(或许在终端中无法设置合适的字体时，可使用这一选项)。
+    statusline_unicode_symbols = false
+
+    # 启用vim兼容模式，避免更改原始vim密钥绑定
+    vimcompatible = true
+
+# 启用 autocomplete 模块，启用模块时，可以列出一些模块选项，并赋值，
+# 关于模块的选项，请阅读各个模块的文档
+[[layers]]
+    name = 'autocomplete'
+    auto-completion-return-key-behavior = "complete"
+    auto-completion-tab-key-behavior = "smart"
+    auto-completion-delay = 50
+    auto-completion-enable-snippets-in-popup = false
+
+# 该模块为中文用户提供了中文的 Vim 帮助文档，同时为部分插件提供了中文帮助文档。
+[[layers]]
+    name = "chinese"
+
+[[layers]]
+    name = "lang#python"
+
+[[layers]]
+    name = 'shell'
+    default_position = 'top'
+    default_height = 30
+
+# 更多的主题
+[[layers]]
+    name = "colorscheme"
+    # random_theme = true
+    # frequency = "1hourly"
+
+# 添加自定义主题：https://github.com/gregsexton/Muon
+[[custom_plugins]]
+    name = "gregsexton/Muon"
+    merged = 0
+
+# 添加自定义主题：https://github.com/KeitaNakamura/neodark.vim
+[[custom_plugins]]
+    name = "KeitaNakamura/neodark.vim"
+    merged = 0
+
+# 添加自定义主题：https://github.com/KeitaNakamura/neodark.vim
+[[custom_plugins]]
+    name = "NLKNguyen/papercolor-theme"
+    merged = 0
+
+[[custom_plugins]]
+    name = "drewtempelmeyer/palenight.vim"
+    merged = 0
+
+[[custom_plugins]]
+    name="Valloric/YouCompleteMe"
